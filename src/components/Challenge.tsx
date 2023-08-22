@@ -7,16 +7,17 @@ interface Props {
 
 const Challenge: FC<Props> = ({ reStart }) => {
     const [answer, setAnswer] = useState<string>('')
-    const { number, levelUp } = useNumber()
+    const { number, level, levelUp, resetLevel } = useNumber()
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         if((parseInt(answer) === number)){
-            alert('Wow!')
+            alert(`Congrats! Level up to ${level + 1}`)
             reStart(true)
             levelUp()
         } else {
-            alert('Oh no!!')
+            resetLevel()
+            alert('Ahh! You missed it.')
         }
     }
     return <form className="w-full" onSubmit={handleSubmit}>
