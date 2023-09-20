@@ -3,7 +3,7 @@
     "background_color": "#0f172abf",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/",
+    "start_url": "/mind-memory",
     "name": "MindMemory",
     "short_name": "MM",
     "description": "Train your mind to remember quickly",

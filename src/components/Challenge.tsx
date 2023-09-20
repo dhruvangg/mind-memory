@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { useNumber } from "../context/NumberContext";
+import { toast } from "react-toastify";
 
 interface Props {
     reStart: (arg0: boolean) => void;
@@ -12,12 +13,18 @@ const Challenge: FC<Props> = ({ reStart }) => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         if((parseInt(answer) === number)){
-            alert(`Congrats! Level up to ${level + 1}`)
+            toast.success(`Congrats! Level up to ${level + 1}`, {
+                position: "bottom-center",
+                autoClose: 3000,
+            })
             reStart(true)
             levelUp()
         } else {
             resetLevel()
-            alert('Ahh! You missed it.')
+            toast.error(`Ahh! You missed it.`, {
+                position: "bottom-center",
+                autoClose: 3000,
+            })
         }
     }
     return <form className="w-full" onSubmit={handleSubmit}>
